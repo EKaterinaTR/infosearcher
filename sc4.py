@@ -42,9 +42,7 @@ class DownloadDocsSpider(scrapy.Spider):
             f'{self.dic_url[response.url]}': response.text
         }
 
-
-
-##Debag
+        
 
 if __name__ == '__main__':
     settings = {"ITEM_PIPELINES": {'sc4.JsonWriterPipeline': 300}}
