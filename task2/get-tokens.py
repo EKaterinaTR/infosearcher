@@ -23,9 +23,12 @@ if __name__ == '__main__':
             tokenization = [word for word in tokens
                             if not word in stopwords.words('english')
                             and not word in stopwords.words('russian')
-                            and len(word) > 1
+                            and len(word) > 2
                             and x_doesnt_content_number(word)]
-            resultset.update(tokenization)
+            r = re.compile("[а-яА-Я]+")
+            russian = [w for w in filter(r.match,tokenization)]
+            resultset.update(russian)
+            print(i)
     with open(f'tokens.txt', 'w', encoding='utf-8') as f:
         line = '\n'.join(resultset)
         f.write(line)
