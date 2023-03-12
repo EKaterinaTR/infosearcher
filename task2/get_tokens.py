@@ -1,5 +1,4 @@
 import re
-from sklearn.feature_extraction.text import CountVectorizer
 from nltk.corpus import stopwords
 from nltk.tokenize import RegexpTokenizer, word_tokenize
 import string
@@ -17,7 +16,6 @@ if __name__ == '__main__':
             text = re.sub(r'<script[^<]*>*<\/script>', ' ', text)
             text = re.sub(r'<[^>]*>', ' ', text)
             text = text.translate({ord(char): " " for char in string.punctuation})
-            # text = re.sub(r'[^\t\v\r\n\f]\w*\d[^\t\v\r\n\f]*', ' ', text)
             tokenizer = RegexpTokenizer(r'\w+')
             tokens = tokenizer.tokenize(text)
             tokenization = [word for word in tokens
